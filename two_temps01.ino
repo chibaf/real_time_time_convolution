@@ -19,8 +19,8 @@ void loop()
 {
   // read A0
   if (i==99) i=0;
-  x=1.25*pi*float(i)/50.0;
-  y=1.25*pi*float(i+30)/50.0;
+  x=pi*float(i)/50.0;
+  y=pi*float(i+30)/50.0;
   float val1 = sin(x);
   float val2 = cos(y);
   if (val1 < 0.0) {val1=0;}
