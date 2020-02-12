@@ -143,7 +143,7 @@ def main():
         i=0;
         plt.plot(t,cnv)
         plt.pause(0.1)
-        lm=findlm(cnv)
+        lm=findlm(cnv)*0.1
         print(lm)
         g.write(str(lm));g.write("\n")
          
