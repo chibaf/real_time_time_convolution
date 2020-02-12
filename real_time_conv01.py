@@ -58,6 +58,14 @@ def DotProduct(x,y):  # inner product
     r=r+x[i]*y[i]
   return r
 
+def findlm(x):
+  for i in range(0,len(x)-1):
+    j=0
+    if (x[i]>x[i+1]):
+      j=i
+      break
+  return j
+
 
 # main() function
 def main():
@@ -80,14 +88,14 @@ def main():
   appnd  = [0] * 100
   cnv = [0]*100
   t=np.linspace(0.0,10.0,100)
-  t=0.1*t
   # open serial port
-  ser = serial.Serial(strPort, 115200)
-  f=open("temp.csv","w+")
+  ser = serial.Serial(strPort, 115200) # M5Stack Serial Speed
+  f=open("temp1.csv","w+")
+  g=open("temp2.csv","w+")
   i=0
   while True:
     try:
-      if (i<50):
+      if (i<100):
         line = ser.readline()
         data = [float(val) for val in line.split()]
         #print data
@@ -106,7 +114,7 @@ def main():
 #          analogPlot.update(analogData)
         tc1[i]=data[1];tc2[i]=data[2];
         i=i+1
-      elif (i<100):
+      elif (i<200):
 #        analogData = AnalogData(100)
 #        analogPlot = AnalogPlot(analogData)
         line = ser.readline()
@@ -135,12 +143,16 @@ def main():
         i=0;
         plt.plot(t,cnv)
         plt.pause(0.1)
+        lm=findlm(cnv)
+        print(lm)
+        g.write(str(lm));g.write("\n")
          
     except KeyboardInterrupt:
       print ('exiting')
       break
   # close serial
   f.close()
+  g.close()
   ser.flush()
   ser.close()
  
