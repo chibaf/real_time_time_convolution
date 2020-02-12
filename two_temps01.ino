@@ -9,7 +9,7 @@
 void setup()
 {
   // initialize serial comms
-  Serial.begin(115200); 
+  Serial.begin(115200); // M5STack Serial speed
 }
 
 int i=0,j=0;
