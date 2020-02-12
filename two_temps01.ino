@@ -9,7 +9,7 @@
 void setup()
 {
   // initialize serial comms
-  Serial.begin(9600); 
+  Serial.begin(115200); 
 }
 
 int i=0,j=0;
