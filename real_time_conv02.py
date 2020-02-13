@@ -54,7 +54,6 @@ class AnalogPlot:
 
 def DotProduct(x,y):  # inner product
   r=0
-  print(x);print(y);
   for i in range(0,len(x)):
     r=r+x[i]*y[i]
   return r
@@ -119,8 +118,6 @@ def main():
           f.write("\n")
           flag=0
           data2=list([data[1],data[2]])
-#          analogData.add(data2)
-#          analogPlot.update(analogData)
           tc1[i]=data[1];tc2[i]=data[2];
       cnv=[]
       for j in range(0,len(tc2)):
