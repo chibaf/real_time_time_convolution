@@ -108,6 +108,7 @@ def main():
     data=[]
     try:
       for i in range(0,100):
+        data=[]
         regex = re.compile('\d+')
         line = ser.readline()
         print(line)
@@ -123,19 +124,19 @@ def main():
         data.append(float(match[18]+"."+match[19]))
         data.append(float(match[20]+"."+match[21]))
         data.append(float(match[22]+"."+match[23]))
-        data1=[data[0],data[1],data[2]]
+#        data1=[data[0],data[1],data[2]]
 #        print(data1)
-        if(len(data) == 11):
-          flag=0
-          for val in data:
-            flag+=1
-            f.write(str(val)); 
-            if(flag<11): 
-              f.write(", ")
-          f.write("\n")
-          flag=0
-          data2=list([data[1],data[2]])
-          tc1[i]=data[1];tc2[i]=data[2];
+        #if(len(data) == 11):
+        flag=0
+        for val in data:
+          flag+=1
+          f.write(str(val)); 
+          if(flag<11): 
+            f.write(", ")
+        f.write("\n")
+        flag=0
+        data2=list([data[1],data[2]])
+        tc1[i]=data[7];tc2[i]=data[8];
       cnv=[]
       for j in range(0,len(tc2)):
         cnv.append(DotProduct(tc1,RotateLeft(tc2,j)))
